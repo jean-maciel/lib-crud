@@ -4,6 +4,8 @@ import br.com.jean.simple_crud.entity.User;
 import br.com.jean.simple_crud.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
 
@@ -23,5 +25,9 @@ public class UserService {
         }
 
         throw new RuntimeException("Email already taken");
+    }
+
+    public Optional<User> getUser(Long id) {
+        return userRepository.findById(id);
     }
 }
